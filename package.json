@@ -29,8 +29,22 @@
   ],
   "main": "./out/src/extension",
   "contributes": {
-    "commands": [
-      {
+    "configuration": {
+      "type": "object",
+      "title": "NpmScript configuration",
+      "properties": {
+        "npm-script.packageManager": {
+          "type": "string",
+          "default": "npm",
+          "enum": [
+            "npm",
+            "cnpm"
+          ],
+          "description": "The package manager used to run scripts."
+        }
+      }
+    },
+    "commands": [{
         "command": "npm-script.start",
         "title": "npm start",
         "category": "npm"

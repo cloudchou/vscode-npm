@@ -27,8 +27,9 @@ export function terminate (pid) {
 
 export function runCommand (args: string[]) {
     
+    let npmScript = Workspace.getConfiguration().get('npm-script.packageManager');
 
-    const cmd = 'npm ' + args.join(' ');
+    const cmd = npmScript + ' ' + args.join(' ');
     const options = {
         cwd: Workspace.rootPath,
         env: process.env
